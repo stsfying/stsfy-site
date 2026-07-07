@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>stsfy: Satisfying software tools for accountants</title>
+<meta name="description" content="A curated selection of community-developed, open-core software tools for accountants.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://stsfy.me">
+<meta property="og:title" content="stsfy: Satisfying software tools for accountants">
+<meta property="og:description" content="A curated selection of community-developed, open-core software tools for accountants.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="stsfy: Satisfying software tools for accountants">
+<meta name="twitter:description" content="A curated selection of community-developed, open-core software tools for accountants.">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <span class="wordmark">stsfy</span>
+    <p class="tagline">Satisfying software tools for accountants</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="intro">
+    <p>stsfy is a curated selection of community-developed software tools built for accountants. Every tool here is <strong>open core</strong> - free and open to inspect, adapt, and extend.</p>
+    <ul class="intro-points">
+      <li><strong>Build together, don't reinvent alone.</strong> Accountants solving the same problems independently is a real waste of effort. By sharing tools and collaborating, we can be more efficient and create higher-quality tools.</li>
+      <li><strong>For growing businesses.</strong> These tools are aimed at start-ups, scale-ups and SMEs that need something simpler than the enterprise-grade platforms multinationals have the budget for.</li>
+      <li><strong>Built LLM-first.</strong> Rather than being designed around a human clicking through a GUI, every tool here is built so an LLM can call it directly - and built to be LLM-agnostic, working with any frontier model rather than being locked to one provider.</li>
+    </ul>
+  </section>
+
+  <section class="tools">
+    <h2>Tools</h2>
+
+    <article class="tool-card">
+      <div class="tool-card-header">
+        <h3>HappyStats</h3>
+        <p class="tool-status">In development</p>
+      </div>
+      <p>A local-first iXBRL statutory accounts tool. HappyStats imports a trial balance, maps it to the FRC IFRS 2024 taxonomy, and generates primary statements (SOFP, SOCI, SCF) plus disclosure notes - producing validated iXBRL and PDF output ready for UK Companies House filing.</p>
+      <p>All data stays on your own machine or shared drive. Nothing is sent to a server or the cloud.</p>
+    </article>
+
+  </section>
+
+  <section class="contact">
+    <h2>Get in touch</h2>
+    <p>Want early access to HappyStats, or building your own tool for accountants? Get in touch below.</p>
+    <form id="contact-form" action="https://formgrid.dev/api/f/1jni0jq0" method="POST">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Send</button>
+      <p class="form-status" id="form-status" role="status"></p>
+    </form>
+  </section>
+
+</main>
+
+<script>
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    status.textContent = '';
+    status.className = 'form-status';
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      });
+
+      if (response.ok) {
+        form.reset();
+        status.textContent = "Thanks - your message has been sent.";
+        status.classList.add('is-success');
+      } else {
+        status.textContent = "Sorry, that didn't send. Please try again or email mark@stsfy.me directly.";
+        status.classList.add('is-error');
+      }
+    } catch (err) {
+      status.textContent = "Sorry, that didn't send. Please try again or email mark@stsfy.me directly.";
+      status.classList.add('is-error');
+    }
+  });
+</script>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; 2026 stsfy</p>
+  </div>
+</footer>
+
+</body>
+</html>
