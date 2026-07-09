@@ -131,74 +131,13 @@ a {
   padding: 48px 0 56px;
 }
 
-.contact form {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+.contact-embed {
   margin-top: 20px;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   padding: 24px;
-}
-
-.contact label {
-  font-size: 16px;
-  font-weight: 400;
-  margin-top: 12px;
-}
-
-.contact label:first-child {
-  margin-top: 0;
-}
-
-.contact input,
-.contact textarea {
-  font: inherit;
-  color: var(--text);
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 10px 12px;
-}
-
-.contact input:focus,
-.contact textarea:focus {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(26,145,80,0.1);
-}
-
-.contact button {
-  align-self: flex-start;
-  margin-top: 16px;
-  font: inherit;
-  font-weight: 600;
-  color: #fff;
-  background: var(--accent);
-  border: 1px solid var(--accent);
-  border-radius: var(--radius);
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
-.contact button:hover {
-  background: var(--accent-hover);
-  border-color: var(--accent-hover);
-}
-
-.form-status {
-  margin-top: 12px;
-  font-size: 14px;
-}
-
-.form-status.is-success {
-  color: var(--accent);
-}
-
-.form-status.is-error {
-  color: #b91c1c;
 }
 
 /* Footer */
